@@ -1,0 +1,1092 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/eclipse_30_1.js"></script>
+        <script src="data/eclipse_35_2.js"></script>
+        <script src="data/eclipse_40_3.js"></script>
+        <script src="data/eclipse_45_4.js"></script>
+        <script src="data/eclipse_50_5.js"></script>
+        <script src="data/eclipse_55_6.js"></script>
+        <script src="data/eclipse_60_7.js"></script>
+        <script src="data/eclipse_65_8.js"></script>
+        <script src="data/eclipse_70_9.js"></script>
+        <script src="data/eclipse_75_10.js"></script>
+        <script src="data/eclipse_80_11.js"></script>
+        <script src="data/eclipse_85_12.js"></script>
+        <script src="data/eclipse_90_13.js"></script>
+        <script src="data/eclipse_95_14.js"></script>
+        <script src="data/dest_2010gw_15.js"></script>
+        <script src="data/Umbra_lo_mex_16.js"></script>
+        <script src="data/duration30_17.js"></script>
+        <script src="data/duration60_18.js"></script>
+        <script src="data/duration180_19.js"></script>
+        <script src="data/duration240_20.js"></script>
+        <script src="data/center_21.js"></script>
+        <script src="data/reprojected_ciudades_mex_eclipses_22.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[20.17429562487238,-110.24751991066371],[29.097259159323436,-93.95243614051867]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_OSMStandard_0');
+        map.getPane('pane_OSMStandard_0').style.zIndex = 400;
+        var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_OSMStandard_0',
+            opacity: 1.0,
+            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OSMStandard_0;
+        map.addLayer(layer_OSMStandard_0);
+        function pop_eclipse_30_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Porcentaje de obscuridad</th>\
+                        <td>' + (feature.properties['Obscuratio'] !== null ? autolinker.link(feature.properties['Obscuratio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eclipse_30_1_0() {
+            return {
+                pane: 'pane_eclipse_30_1',
+                opacity: 1,
+                color: 'rgba(255,225,225,0.803921568627451)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(152,125,183,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eclipse_30_1');
+        map.getPane('pane_eclipse_30_1').style.zIndex = 401;
+        map.getPane('pane_eclipse_30_1').style['mix-blend-mode'] = 'normal';
+        var layer_eclipse_30_1 = new L.geoJson(json_eclipse_30_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eclipse_30_1',
+            layerName: 'layer_eclipse_30_1',
+            pane: 'pane_eclipse_30_1',
+            onEachFeature: pop_eclipse_30_1,
+            style: style_eclipse_30_1_0,
+        });
+        bounds_group.addLayer(layer_eclipse_30_1);
+        map.addLayer(layer_eclipse_30_1);
+        function pop_eclipse_35_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Porcentaje de obscuridad</th>\
+                        <td>' + (feature.properties['Obscuratio'] !== null ? autolinker.link(feature.properties['Obscuratio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eclipse_35_2_0() {
+            return {
+                pane: 'pane_eclipse_35_2',
+                opacity: 1,
+                color: 'rgba(249,231,226,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(249,231,226,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eclipse_35_2');
+        map.getPane('pane_eclipse_35_2').style.zIndex = 402;
+        map.getPane('pane_eclipse_35_2').style['mix-blend-mode'] = 'normal';
+        var layer_eclipse_35_2 = new L.geoJson(json_eclipse_35_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eclipse_35_2',
+            layerName: 'layer_eclipse_35_2',
+            pane: 'pane_eclipse_35_2',
+            onEachFeature: pop_eclipse_35_2,
+            style: style_eclipse_35_2_0,
+        });
+        bounds_group.addLayer(layer_eclipse_35_2);
+        map.addLayer(layer_eclipse_35_2);
+        function pop_eclipse_40_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Porcentaje de obscuridad</th>\
+                        <td>' + (feature.properties['Obscuratio'] !== null ? autolinker.link(feature.properties['Obscuratio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eclipse_40_3_0() {
+            return {
+                pane: 'pane_eclipse_40_3',
+                opacity: 1,
+                color: 'rgba(255,247,247,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(183,72,75,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eclipse_40_3');
+        map.getPane('pane_eclipse_40_3').style.zIndex = 403;
+        map.getPane('pane_eclipse_40_3').style['mix-blend-mode'] = 'normal';
+        var layer_eclipse_40_3 = new L.geoJson(json_eclipse_40_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eclipse_40_3',
+            layerName: 'layer_eclipse_40_3',
+            pane: 'pane_eclipse_40_3',
+            onEachFeature: pop_eclipse_40_3,
+            style: style_eclipse_40_3_0,
+        });
+        bounds_group.addLayer(layer_eclipse_40_3);
+        map.addLayer(layer_eclipse_40_3);
+        function pop_eclipse_45_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Porcentaje de obscuridad</th>\
+                        <td>' + (feature.properties['Obscuratio'] !== null ? autolinker.link(feature.properties['Obscuratio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eclipse_45_4_0() {
+            return {
+                pane: 'pane_eclipse_45_4',
+                opacity: 1,
+                color: 'rgba(250,250,250,0.803921568627451)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,113,141,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eclipse_45_4');
+        map.getPane('pane_eclipse_45_4').style.zIndex = 404;
+        map.getPane('pane_eclipse_45_4').style['mix-blend-mode'] = 'normal';
+        var layer_eclipse_45_4 = new L.geoJson(json_eclipse_45_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eclipse_45_4',
+            layerName: 'layer_eclipse_45_4',
+            pane: 'pane_eclipse_45_4',
+            onEachFeature: pop_eclipse_45_4,
+            style: style_eclipse_45_4_0,
+        });
+        bounds_group.addLayer(layer_eclipse_45_4);
+        map.addLayer(layer_eclipse_45_4);
+        function pop_eclipse_50_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Porcentaje de obscuridad</th>\
+                        <td>' + (feature.properties['Obscuratio'] !== null ? autolinker.link(feature.properties['Obscuratio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eclipse_50_5_0() {
+            return {
+                pane: 'pane_eclipse_50_5',
+                opacity: 1,
+                color: 'rgba(223,223,223,0.803921568627451)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(141,90,153,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eclipse_50_5');
+        map.getPane('pane_eclipse_50_5').style.zIndex = 405;
+        map.getPane('pane_eclipse_50_5').style['mix-blend-mode'] = 'normal';
+        var layer_eclipse_50_5 = new L.geoJson(json_eclipse_50_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eclipse_50_5',
+            layerName: 'layer_eclipse_50_5',
+            pane: 'pane_eclipse_50_5',
+            onEachFeature: pop_eclipse_50_5,
+            style: style_eclipse_50_5_0,
+        });
+        bounds_group.addLayer(layer_eclipse_50_5);
+        map.addLayer(layer_eclipse_50_5);
+        function pop_eclipse_55_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Porcentaje de obscuridad</th>\
+                        <td>' + (feature.properties['Obscuratio'] !== null ? autolinker.link(feature.properties['Obscuratio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eclipse_55_6_0() {
+            return {
+                pane: 'pane_eclipse_55_6',
+                opacity: 1,
+                color: 'rgba(196,196,196,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(243,166,178,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eclipse_55_6');
+        map.getPane('pane_eclipse_55_6').style.zIndex = 406;
+        map.getPane('pane_eclipse_55_6').style['mix-blend-mode'] = 'normal';
+        var layer_eclipse_55_6 = new L.geoJson(json_eclipse_55_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eclipse_55_6',
+            layerName: 'layer_eclipse_55_6',
+            pane: 'pane_eclipse_55_6',
+            onEachFeature: pop_eclipse_55_6,
+            style: style_eclipse_55_6_0,
+        });
+        bounds_group.addLayer(layer_eclipse_55_6);
+        map.addLayer(layer_eclipse_55_6);
+        function pop_eclipse_60_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Porcentaje de obscuridad</th>\
+                        <td>' + (feature.properties['Obscuratio'] !== null ? autolinker.link(feature.properties['Obscuratio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eclipse_60_7_0() {
+            return {
+                pane: 'pane_eclipse_60_7',
+                opacity: 1,
+                color: 'rgba(168,168,168,0.803921568627451)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(114,155,111,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eclipse_60_7');
+        map.getPane('pane_eclipse_60_7').style.zIndex = 407;
+        map.getPane('pane_eclipse_60_7').style['mix-blend-mode'] = 'normal';
+        var layer_eclipse_60_7 = new L.geoJson(json_eclipse_60_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eclipse_60_7',
+            layerName: 'layer_eclipse_60_7',
+            pane: 'pane_eclipse_60_7',
+            onEachFeature: pop_eclipse_60_7,
+            style: style_eclipse_60_7_0,
+        });
+        bounds_group.addLayer(layer_eclipse_60_7);
+        map.addLayer(layer_eclipse_60_7);
+        function pop_eclipse_65_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Porcentaje de obscuridad</th>\
+                        <td>' + (feature.properties['Obscuratio'] !== null ? autolinker.link(feature.properties['Obscuratio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eclipse_65_8_0() {
+            return {
+                pane: 'pane_eclipse_65_8',
+                opacity: 1,
+                color: 'rgba(141,141,141,0.803921568627451)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(213,180,60,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eclipse_65_8');
+        map.getPane('pane_eclipse_65_8').style.zIndex = 408;
+        map.getPane('pane_eclipse_65_8').style['mix-blend-mode'] = 'normal';
+        var layer_eclipse_65_8 = new L.geoJson(json_eclipse_65_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eclipse_65_8',
+            layerName: 'layer_eclipse_65_8',
+            pane: 'pane_eclipse_65_8',
+            onEachFeature: pop_eclipse_65_8,
+            style: style_eclipse_65_8_0,
+        });
+        bounds_group.addLayer(layer_eclipse_65_8);
+        map.addLayer(layer_eclipse_65_8);
+        function pop_eclipse_70_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Porcentaje de obscuridad</th>\
+                        <td>' + (feature.properties['Obscuratio'] !== null ? autolinker.link(feature.properties['Obscuratio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eclipse_70_9_0() {
+            return {
+                pane: 'pane_eclipse_70_9',
+                opacity: 1,
+                color: 'rgba(97,97,97,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(164,113,88,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eclipse_70_9');
+        map.getPane('pane_eclipse_70_9').style.zIndex = 409;
+        map.getPane('pane_eclipse_70_9').style['mix-blend-mode'] = 'normal';
+        var layer_eclipse_70_9 = new L.geoJson(json_eclipse_70_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eclipse_70_9',
+            layerName: 'layer_eclipse_70_9',
+            pane: 'pane_eclipse_70_9',
+            onEachFeature: pop_eclipse_70_9,
+            style: style_eclipse_70_9_0,
+        });
+        bounds_group.addLayer(layer_eclipse_70_9);
+        map.addLayer(layer_eclipse_70_9);
+        function pop_eclipse_75_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Porcentaje de obscuridad</th>\
+                        <td>' + (feature.properties['Obscuratio'] !== null ? autolinker.link(feature.properties['Obscuratio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eclipse_75_10_0() {
+            return {
+                pane: 'pane_eclipse_75_10',
+                opacity: 1,
+                color: 'rgba(114,114,114,0.803921568627451)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(133,182,111,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eclipse_75_10');
+        map.getPane('pane_eclipse_75_10').style.zIndex = 410;
+        map.getPane('pane_eclipse_75_10').style['mix-blend-mode'] = 'normal';
+        var layer_eclipse_75_10 = new L.geoJson(json_eclipse_75_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eclipse_75_10',
+            layerName: 'layer_eclipse_75_10',
+            pane: 'pane_eclipse_75_10',
+            onEachFeature: pop_eclipse_75_10,
+            style: style_eclipse_75_10_0,
+        });
+        bounds_group.addLayer(layer_eclipse_75_10);
+        map.addLayer(layer_eclipse_75_10);
+        function pop_eclipse_80_11(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Porcentaje de obscuridad</th>\
+                        <td>' + (feature.properties['Obscuratio'] !== null ? autolinker.link(feature.properties['Obscuratio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eclipse_80_11_0() {
+            return {
+                pane: 'pane_eclipse_80_11',
+                opacity: 1,
+                color: 'rgba(87,87,87,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(125,139,143,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eclipse_80_11');
+        map.getPane('pane_eclipse_80_11').style.zIndex = 411;
+        map.getPane('pane_eclipse_80_11').style['mix-blend-mode'] = 'normal';
+        var layer_eclipse_80_11 = new L.geoJson(json_eclipse_80_11, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eclipse_80_11',
+            layerName: 'layer_eclipse_80_11',
+            pane: 'pane_eclipse_80_11',
+            onEachFeature: pop_eclipse_80_11,
+            style: style_eclipse_80_11_0,
+        });
+        bounds_group.addLayer(layer_eclipse_80_11);
+        map.addLayer(layer_eclipse_80_11);
+        function pop_eclipse_85_12(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Porcentaje de obscuridad</th>\
+                        <td>' + (feature.properties['Obscuratio'] !== null ? autolinker.link(feature.properties['Obscuratio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eclipse_85_12_0() {
+            return {
+                pane: 'pane_eclipse_85_12',
+                opacity: 1,
+                color: 'rgba(74,74,74,0.803921568627451)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(145,82,45,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eclipse_85_12');
+        map.getPane('pane_eclipse_85_12').style.zIndex = 412;
+        map.getPane('pane_eclipse_85_12').style['mix-blend-mode'] = 'normal';
+        var layer_eclipse_85_12 = new L.geoJson(json_eclipse_85_12, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eclipse_85_12',
+            layerName: 'layer_eclipse_85_12',
+            pane: 'pane_eclipse_85_12',
+            onEachFeature: pop_eclipse_85_12,
+            style: style_eclipse_85_12_0,
+        });
+        bounds_group.addLayer(layer_eclipse_85_12);
+        map.addLayer(layer_eclipse_85_12);
+        function pop_eclipse_90_13(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Porcentaje de obscuridad</th>\
+                        <td>' + (feature.properties['Obscuratio'] !== null ? autolinker.link(feature.properties['Obscuratio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eclipse_90_13_0() {
+            return {
+                pane: 'pane_eclipse_90_13',
+                opacity: 1,
+                color: 'rgba(23,23,23,0.8)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(145,82,45,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eclipse_90_13');
+        map.getPane('pane_eclipse_90_13').style.zIndex = 413;
+        map.getPane('pane_eclipse_90_13').style['mix-blend-mode'] = 'normal';
+        var layer_eclipse_90_13 = new L.geoJson(json_eclipse_90_13, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eclipse_90_13',
+            layerName: 'layer_eclipse_90_13',
+            pane: 'pane_eclipse_90_13',
+            onEachFeature: pop_eclipse_90_13,
+            style: style_eclipse_90_13_0,
+        });
+        bounds_group.addLayer(layer_eclipse_90_13);
+        map.addLayer(layer_eclipse_90_13);
+        function pop_eclipse_95_14(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Porcentaje de obscuridad</th>\
+                        <td>' + (feature.properties['Obscuratio'] !== null ? autolinker.link(feature.properties['Obscuratio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eclipse_95_14_0() {
+            return {
+                pane: 'pane_eclipse_95_14',
+                opacity: 1,
+                color: 'rgba(3,3,3,0.9333333333333333)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 6.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(145,82,45,0.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eclipse_95_14');
+        map.getPane('pane_eclipse_95_14').style.zIndex = 414;
+        map.getPane('pane_eclipse_95_14').style['mix-blend-mode'] = 'normal';
+        var layer_eclipse_95_14 = new L.geoJson(json_eclipse_95_14, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eclipse_95_14',
+            layerName: 'layer_eclipse_95_14',
+            pane: 'pane_eclipse_95_14',
+            onEachFeature: pop_eclipse_95_14,
+            style: style_eclipse_95_14_0,
+        });
+        bounds_group.addLayer(layer_eclipse_95_14);
+        map.addLayer(layer_eclipse_95_14);
+        function pop_dest_2010gw_15(feature, layer) {
+        }
+
+        function style_dest_2010gw_15_0() {
+            return {
+                pane: 'pane_dest_2010gw_15',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(250,250,250,0.10980392156862745)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_dest_2010gw_15');
+        map.getPane('pane_dest_2010gw_15').style.zIndex = 415;
+        map.getPane('pane_dest_2010gw_15').style['mix-blend-mode'] = 'normal';
+        var layer_dest_2010gw_15 = new L.geoJson(json_dest_2010gw_15, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_dest_2010gw_15',
+            layerName: 'layer_dest_2010gw_15',
+            pane: 'pane_dest_2010gw_15',
+            onEachFeature: pop_dest_2010gw_15,
+            style: style_dest_2010gw_15_0,
+        });
+        bounds_group.addLayer(layer_dest_2010gw_15);
+        map.addLayer(layer_dest_2010gw_15);
+        function pop_Umbra_lo_mex_16(feature, layer) {
+        }
+
+        function style_Umbra_lo_mex_16_0(feature) {
+            if (feature.properties['q2wHide_Duration'] >= 262.020000 && feature.properties['q2wHide_Duration'] <= 263.490000 ) {
+                return {
+                pane: 'pane_Umbra_lo_mex_16',
+                opacity: 1,
+                color: 'rgba(247,247,247,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(250,250,250,0.6)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['q2wHide_Duration'] >= 263.490000 && feature.properties['q2wHide_Duration'] <= 268.050000 ) {
+                return {
+                pane: 'pane_Umbra_lo_mex_16',
+                opacity: 1,
+                color: 'rgba(247,247,247,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(238,238,238,0.6)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['q2wHide_Duration'] >= 268.050000 && feature.properties['q2wHide_Duration'] <= 268.590000 ) {
+                return {
+                pane: 'pane_Umbra_lo_mex_16',
+                opacity: 1,
+                color: 'rgba(247,247,247,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,227,227,0.6)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['q2wHide_Duration'] >= 268.590000 && feature.properties['q2wHide_Duration'] <= 268.910000 ) {
+                return {
+                pane: 'pane_Umbra_lo_mex_16',
+                opacity: 1,
+                color: 'rgba(247,247,247,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,215,215,0.6)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['q2wHide_Duration'] >= 268.910000 && feature.properties['q2wHide_Duration'] <= 269.190000 ) {
+                return {
+                pane: 'pane_Umbra_lo_mex_16',
+                opacity: 1,
+                color: 'rgba(247,247,247,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,204,204,0.6)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['q2wHide_Duration'] >= 269.190000 && feature.properties['q2wHide_Duration'] <= 269.440000 ) {
+                return {
+                pane: 'pane_Umbra_lo_mex_16',
+                opacity: 1,
+                color: 'rgba(247,247,247,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(192,192,192,0.6)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['q2wHide_Duration'] >= 269.440000 && feature.properties['q2wHide_Duration'] <= 269.650000 ) {
+                return {
+                pane: 'pane_Umbra_lo_mex_16',
+                opacity: 1,
+                color: 'rgba(247,247,247,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(181,181,181,0.6)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['q2wHide_Duration'] >= 269.650000 && feature.properties['q2wHide_Duration'] <= 269.820000 ) {
+                return {
+                pane: 'pane_Umbra_lo_mex_16',
+                opacity: 1,
+                color: 'rgba(247,247,247,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(169,169,169,0.6)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['q2wHide_Duration'] >= 269.820000 && feature.properties['q2wHide_Duration'] <= 269.950000 ) {
+                return {
+                pane: 'pane_Umbra_lo_mex_16',
+                opacity: 1,
+                color: 'rgba(247,247,247,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(158,158,158,0.6)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['q2wHide_Duration'] >= 269.950000 && feature.properties['q2wHide_Duration'] <= 270.050000 ) {
+                return {
+                pane: 'pane_Umbra_lo_mex_16',
+                opacity: 1,
+                color: 'rgba(247,247,247,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(146,146,146,0.6)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['q2wHide_Duration'] >= 270.050000 && feature.properties['q2wHide_Duration'] <= 270.110000 ) {
+                return {
+                pane: 'pane_Umbra_lo_mex_16',
+                opacity: 1,
+                color: 'rgba(247,247,247,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(135,135,135,0.6)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['q2wHide_Duration'] >= 270.110000 && feature.properties['q2wHide_Duration'] <= 270.130000 ) {
+                return {
+                pane: 'pane_Umbra_lo_mex_16',
+                opacity: 1,
+                color: 'rgba(247,247,247,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(123,123,123,0.6)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_Umbra_lo_mex_16');
+        map.getPane('pane_Umbra_lo_mex_16').style.zIndex = 416;
+        map.getPane('pane_Umbra_lo_mex_16').style['mix-blend-mode'] = 'darken';
+        var layer_Umbra_lo_mex_16 = new L.geoJson(json_Umbra_lo_mex_16, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Umbra_lo_mex_16',
+            layerName: 'layer_Umbra_lo_mex_16',
+            pane: 'pane_Umbra_lo_mex_16',
+            onEachFeature: pop_Umbra_lo_mex_16,
+            style: style_Umbra_lo_mex_16_0,
+        });
+        bounds_group.addLayer(layer_Umbra_lo_mex_16);
+        map.addLayer(layer_Umbra_lo_mex_16);
+        function pop_duration30_17(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Duración en segundos</th>\
+                        <td>' + (feature.properties['Duration'] !== null ? autolinker.link(feature.properties['Duration'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_duration30_17_0() {
+            return {
+                pane: 'pane_duration30_17',
+                opacity: 1,
+                color: 'rgba(236,57,156,0.2)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_duration30_17');
+        map.getPane('pane_duration30_17').style.zIndex = 417;
+        map.getPane('pane_duration30_17').style['mix-blend-mode'] = 'normal';
+        var layer_duration30_17 = new L.geoJson(json_duration30_17, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_duration30_17',
+            layerName: 'layer_duration30_17',
+            pane: 'pane_duration30_17',
+            onEachFeature: pop_duration30_17,
+            style: style_duration30_17_0,
+        });
+        bounds_group.addLayer(layer_duration30_17);
+        map.addLayer(layer_duration30_17);
+        function pop_duration60_18(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Duración en segundos</th>\
+                        <td>' + (feature.properties['Duration'] !== null ? autolinker.link(feature.properties['Duration'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_duration60_18_0() {
+            return {
+                pane: 'pane_duration60_18',
+                opacity: 1,
+                color: 'rgba(212,187,85,0.20392156862745098)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_duration60_18');
+        map.getPane('pane_duration60_18').style.zIndex = 418;
+        map.getPane('pane_duration60_18').style['mix-blend-mode'] = 'normal';
+        var layer_duration60_18 = new L.geoJson(json_duration60_18, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_duration60_18',
+            layerName: 'layer_duration60_18',
+            pane: 'pane_duration60_18',
+            onEachFeature: pop_duration60_18,
+            style: style_duration60_18_0,
+        });
+        bounds_group.addLayer(layer_duration60_18);
+        map.addLayer(layer_duration60_18);
+        function pop_duration180_19(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Duración en segundos</th>\
+                        <td>' + (feature.properties['Duration'] !== null ? autolinker.link(feature.properties['Duration'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_duration180_19_0() {
+            return {
+                pane: 'pane_duration180_19',
+                opacity: 1,
+                color: 'rgba(81,235,99,0.20392156862745098)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_duration180_19');
+        map.getPane('pane_duration180_19').style.zIndex = 419;
+        map.getPane('pane_duration180_19').style['mix-blend-mode'] = 'normal';
+        var layer_duration180_19 = new L.geoJson(json_duration180_19, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_duration180_19',
+            layerName: 'layer_duration180_19',
+            pane: 'pane_duration180_19',
+            onEachFeature: pop_duration180_19,
+            style: style_duration180_19_0,
+        });
+        bounds_group.addLayer(layer_duration180_19);
+        map.addLayer(layer_duration180_19);
+        function pop_duration240_20(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Duración en segundos</th>\
+                        <td>' + (feature.properties['Duration'] !== null ? autolinker.link(feature.properties['Duration'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_duration240_20_0() {
+            return {
+                pane: 'pane_duration240_20',
+                opacity: 1,
+                color: 'rgba(55,34,216,0.2)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_duration240_20');
+        map.getPane('pane_duration240_20').style.zIndex = 420;
+        map.getPane('pane_duration240_20').style['mix-blend-mode'] = 'normal';
+        var layer_duration240_20 = new L.geoJson(json_duration240_20, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_duration240_20',
+            layerName: 'layer_duration240_20',
+            pane: 'pane_duration240_20',
+            onEachFeature: pop_duration240_20,
+            style: style_duration240_20_0,
+        });
+        bounds_group.addLayer(layer_duration240_20);
+        map.addLayer(layer_duration240_20);
+        function pop_center_21(feature, layer) {
+        }
+
+        function style_center_21_0() {
+            return {
+                pane: 'pane_center_21',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_center_21');
+        map.getPane('pane_center_21').style.zIndex = 421;
+        map.getPane('pane_center_21').style['mix-blend-mode'] = 'normal';
+        var layer_center_21 = new L.geoJson(json_center_21, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_center_21',
+            layerName: 'layer_center_21',
+            pane: 'pane_center_21',
+            onEachFeature: pop_center_21,
+            style: style_center_21_0,
+        });
+        bounds_group.addLayer(layer_center_21);
+        map.addLayer(layer_center_21);
+        function pop_reprojected_ciudades_mex_eclipses_22(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Tipo de localidad</th>\
+                        <td>' + (feature.properties['AMBITO'] !== null ? autolinker.link(feature.properties['AMBITO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['NOMLOC'] !== null ? autolinker.link(feature.properties['NOMLOC'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_reprojected_ciudades_mex_eclipses_22_0() {
+            return {
+                pane: 'pane_reprojected_ciudades_mex_eclipses_22',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(184,83,212,0.20392156862745098)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_reprojected_ciudades_mex_eclipses_22');
+        map.getPane('pane_reprojected_ciudades_mex_eclipses_22').style.zIndex = 422;
+        map.getPane('pane_reprojected_ciudades_mex_eclipses_22').style['mix-blend-mode'] = 'normal';
+        var layer_reprojected_ciudades_mex_eclipses_22 = new L.geoJson(json_reprojected_ciudades_mex_eclipses_22, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_reprojected_ciudades_mex_eclipses_22',
+            layerName: 'layer_reprojected_ciudades_mex_eclipses_22',
+            pane: 'pane_reprojected_ciudades_mex_eclipses_22',
+            onEachFeature: pop_reprojected_ciudades_mex_eclipses_22,
+            style: style_reprojected_ciudades_mex_eclipses_22_0,
+        });
+        bounds_group.addLayer(layer_reprojected_ciudades_mex_eclipses_22);
+        map.addLayer(layer_reprojected_ciudades_mex_eclipses_22);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/reprojected_ciudades_mex_eclipses_22.png" /> Ciudades de México': layer_reprojected_ciudades_mex_eclipses_22,'<img src="legend/center_21.png" /> Centro del eclipse Total': layer_center_21,'<img src="legend/duration240_20.png" /> Duración > 4 min': layer_duration240_20,'<img src="legend/duration180_19.png" /> Duración > 2 min': layer_duration180_19,'<img src="legend/duration60_18.png" /> Duración > 1 min': layer_duration60_18,'<img src="legend/duration30_17.png" /> Duración > 30 seg': layer_duration30_17,'Umbra duración en segundos<br /><table><tr><td style="text-align: center;"><img src="legend/Umbra_lo_mex_16_26202263490.png" /></td><td>262.02 - 263.49</td></tr><tr><td style="text-align: center;"><img src="legend/Umbra_lo_mex_16_26349268051.png" /></td><td>263.49 - 268.05</td></tr><tr><td style="text-align: center;"><img src="legend/Umbra_lo_mex_16_26805268592.png" /></td><td>268.05 - 268.59</td></tr><tr><td style="text-align: center;"><img src="legend/Umbra_lo_mex_16_26859268913.png" /></td><td>268.59 - 268.91</td></tr><tr><td style="text-align: center;"><img src="legend/Umbra_lo_mex_16_26891269194.png" /></td><td>268.91 - 269.19</td></tr><tr><td style="text-align: center;"><img src="legend/Umbra_lo_mex_16_26919269445.png" /></td><td>269.19 - 269.44</td></tr><tr><td style="text-align: center;"><img src="legend/Umbra_lo_mex_16_26944269656.png" /></td><td>269.44 - 269.65</td></tr><tr><td style="text-align: center;"><img src="legend/Umbra_lo_mex_16_26965269827.png" /></td><td>269.65 - 269.82</td></tr><tr><td style="text-align: center;"><img src="legend/Umbra_lo_mex_16_26982269958.png" /></td><td>269.82 - 269.95</td></tr><tr><td style="text-align: center;"><img src="legend/Umbra_lo_mex_16_26995270059.png" /></td><td>269.95 - 270.05</td></tr><tr><td style="text-align: center;"><img src="legend/Umbra_lo_mex_16_270052701110.png" /></td><td>270.05 - 270.11</td></tr><tr><td style="text-align: center;"><img src="legend/Umbra_lo_mex_16_270112701311.png" /></td><td>270.11 - 270.13</td></tr></table>': layer_Umbra_lo_mex_16,'<img src="legend/dest_2010gw_15.png" /> Límites Estatales': layer_dest_2010gw_15,'<img src="legend/eclipse_95_14.png" /> Obscuridad al 95%': layer_eclipse_95_14,'<img src="legend/eclipse_90_13.png" /> Obscuridad al 90%': layer_eclipse_90_13,'<img src="legend/eclipse_85_12.png" /> Obscuridad al 85%': layer_eclipse_85_12,'<img src="legend/eclipse_80_11.png" /> Obscuridad al 80%': layer_eclipse_80_11,'<img src="legend/eclipse_75_10.png" /> Obscuridad al 75%': layer_eclipse_75_10,'<img src="legend/eclipse_70_9.png" /> Obscuridad al 70%': layer_eclipse_70_9,'<img src="legend/eclipse_65_8.png" /> Obscuridad al 65%': layer_eclipse_65_8,'<img src="legend/eclipse_60_7.png" /> Obscuridad al 60%': layer_eclipse_60_7,'<img src="legend/eclipse_55_6.png" /> Obscuridad al 55%': layer_eclipse_55_6,'<img src="legend/eclipse_50_5.png" /> Obscuridad al 50%': layer_eclipse_50_5,'<img src="legend/eclipse_45_4.png" /> Obscuridad al 45%': layer_eclipse_45_4,'<img src="legend/eclipse_40_3.png" /> Obscuridad al 40%': layer_eclipse_40_3,'<img src="legend/eclipse_35_2.png" /> Obscuridad al 35%': layer_eclipse_35_2,'<img src="legend/eclipse_30_1.png" /> Obscuridad al 30%': layer_eclipse_30_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
+        setBounds();
+        resetLabels([layer_Umbra_lo_mex_16]);
+        map.on("zoomend", function(){
+            resetLabels([layer_Umbra_lo_mex_16]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_Umbra_lo_mex_16]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_Umbra_lo_mex_16]);
+        });
+        </script>
+    </body>
+</html>
